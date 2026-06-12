@@ -4,6 +4,7 @@ import { Geist_Mono, Noto_Sans } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
+import { ClarityScript } from "@/components/clarity-script"
 import { cn } from "@/lib/utils"
 import "./globals.css"
 
@@ -52,13 +53,9 @@ export default function RootLayout({
             strategy="lazyOnload"
           />
         )}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","x5tkk2esbf");`,
-          }}
-        />
       </head>
       <body className="flex min-h-screen flex-col">
+        <ClarityScript />
         <ThemeProvider>
           <SiteHeader />
           <div className="flex-1">{children}</div>
